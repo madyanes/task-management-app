@@ -32,6 +32,11 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  function handleEditTask(task) {
+    const updatedTasks = tasks.map((t) => (t.id === task.id ? task : t))
+    setTasks(updatedTasks)
+  }
+
   return (
     <>
       <h1>Todo App</h1>
@@ -40,6 +45,7 @@ function App() {
         tasks={tasks}
         onCheckTask={handleCheckTask}
         onDeleteTask={handleDeleteTask}
+        onEditTask={handleEditTask}
       />
     </>
   )
