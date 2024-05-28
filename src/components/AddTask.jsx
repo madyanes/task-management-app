@@ -8,7 +8,7 @@ function AddTask({ onAddTask }) {
       <form>
         <input
           type='text'
-          placeholder='Add todo'
+          placeholder='Add a new task'
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

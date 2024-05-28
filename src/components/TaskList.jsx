@@ -1,4 +1,4 @@
-function ContactList({ tasks }) {
+function TaskList({ tasks }) {
   return (
     <>
       <ul>
@@ -10,4 +10,4 @@ function ContactList({ tasks }) {
   )
 }
 
-export default ContactList
+export default TaskList

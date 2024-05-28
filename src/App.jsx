@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import initialTasks from './utils/tasks'
-import ContactList from './components/ContactList'
+import TaskList from './components/TaskList'
 import AddTask from './components/AddTask'
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     <>
       <h1>Todo App</h1>
       <AddTask onAddTask={handleAddTask} />
-      <ContactList tasks={tasks} />
+      <TaskList tasks={tasks} />
     </>
   )
 }
