@@ -17,11 +17,21 @@ function App() {
     ])
   }
 
+  function handleCheckTask(taskId) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, done: !task.done }
+      }
+      return task
+    })
+    setTasks(updatedTasks)
+  }
+
   return (
     <>
       <h1>Todo App</h1>
       <AddTask onAddTask={handleAddTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onCheckTask={handleCheckTask} />
     </>
   )
 }
