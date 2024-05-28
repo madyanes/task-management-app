@@ -5,16 +5,14 @@ function AddTask({ onAddTask }) {
 
   return (
     <>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input
           type='text'
           placeholder='Add a new task'
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button onClick={() => onAddTask(text)} type='button'>
-          Add
-        </button>
+        <button onClick={() => onAddTask(text)}>Add</button>
       </form>
     </>
   )
