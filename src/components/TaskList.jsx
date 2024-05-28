@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function TaskList({ tasks, onCheckTask, onDeleteTask, onEditTask }) {
+function TaskList({ tasks, onDeleteTask, onEditTask }) {
   const [editableTasks, setEditableTasks] = useState({})
 
   const handleToggleEdit = (taskId) => {
@@ -18,7 +18,7 @@ function TaskList({ tasks, onCheckTask, onDeleteTask, onEditTask }) {
             <input
               type='checkbox'
               checked={task.done}
-              onChange={() => onCheckTask(task.id)}
+              onChange={() => onEditTask({ ...task, done: !task.done })}
             />
             <input
               type='text'

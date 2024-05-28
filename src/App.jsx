@@ -17,16 +17,6 @@ function App() {
     ])
   }
 
-  function handleCheckTask(taskId) {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return { ...task, done: !task.done }
-      }
-      return task
-    })
-    setTasks(updatedTasks)
-  }
-
   function handleDeleteTask(taskId) {
     const updatedTasks = tasks.filter((task) => task.id !== taskId)
     setTasks(updatedTasks)
@@ -43,7 +33,6 @@ function App() {
       <AddTask onAddTask={handleAddTask} />
       <TaskList
         tasks={tasks}
-        onCheckTask={handleCheckTask}
         onDeleteTask={handleDeleteTask}
         onEditTask={handleEditTask}
       />
