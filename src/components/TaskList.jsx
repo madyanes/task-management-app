@@ -1,4 +1,4 @@
-function TaskList({ tasks, onCheckTask }) {
+function TaskList({ tasks, onCheckTask, onDeleteTask }) {
   return (
     <>
       <ul>
@@ -10,6 +10,7 @@ function TaskList({ tasks, onCheckTask }) {
               onChange={() => onCheckTask(task.id)}
             />
             <input type='text' value={task.text} readOnly />
+            <button onClick={() => onDeleteTask(task.id)}>Delete</button>
           </li>
         ))}
       </ul>

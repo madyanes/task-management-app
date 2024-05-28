@@ -27,11 +27,20 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  function handleDeleteTask(taskId) {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId)
+    setTasks(updatedTasks)
+  }
+
   return (
     <>
       <h1>Todo App</h1>
       <AddTask onAddTask={handleAddTask} />
-      <TaskList tasks={tasks} onCheckTask={handleCheckTask} />
+      <TaskList
+        tasks={tasks}
+        onCheckTask={handleCheckTask}
+        onDeleteTask={handleDeleteTask}
+      />
     </>
   )
 }
