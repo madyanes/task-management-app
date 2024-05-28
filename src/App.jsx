@@ -3,6 +3,8 @@ import initialTasks from './utils/tasks'
 import TaskList from './components/TaskList'
 import AddTask from './components/AddTask'
 
+let nextTaskId = 4
+
 function App() {
   const [tasks, setTasks] = useState(initialTasks)
 
@@ -10,7 +12,7 @@ function App() {
     setTasks([
       ...tasks,
       {
-        id: tasks.length + 1,
+        id: nextTaskId++,
         text: text,
         done: false,
       },
