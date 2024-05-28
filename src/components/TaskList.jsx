@@ -1,7 +1,14 @@
 import { useState } from 'react'
 
 function TaskList({ tasks, onCheckTask, onDeleteTask, onEditTask }) {
-  const [editable, setEditable] = useState(false)
+  const [editableTasks, setEditableTasks] = useState({})
+
+  const handleToggleEdit = (taskId) => {
+    setEditableTasks((prev) => ({
+      ...prev,
+      [taskId]: !prev[taskId],
+    }))
+  }
 
   return (
     <>
@@ -17,10 +24,10 @@ function TaskList({ tasks, onCheckTask, onDeleteTask, onEditTask }) {
               type='text'
               value={task.text}
               onChange={(e) => onEditTask({ ...task, text: e.target.value })}
-              readOnly={!editable}
+              readOnly={!editableTasks[task.id]}
             />
-            <button onClick={() => setEditable(!editable)}>
-              {editable ? 'Save' : 'Edit'}
+            <button onClick={() => handleToggleEdit(task.id)}>
+              {editableTasks[task.id] ? 'Save' : 'Edit'}
             </button>
             <button onClick={() => onDeleteTask(task.id)}>Delete</button>
           </li>
