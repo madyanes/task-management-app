@@ -1,35 +1,16 @@
-import { useState } from 'react'
+import Task from './Task'
 
 function TaskList({ tasks, onDeleteTask, onEditTask }) {
-  const [editableTasks, setEditableTasks] = useState({})
-
-  const handleToggleEdit = (taskId) => {
-    setEditableTasks((prev) => ({
-      ...prev,
-      [taskId]: !prev[taskId],
-    }))
-  }
-
   return (
     <>
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>
-            <input
-              type='checkbox'
-              checked={task.done}
-              onChange={() => onEditTask({ ...task, done: !task.done })}
+            <Task
+              task={task}
+              onDeleteTask={onDeleteTask}
+              onEditTask={onEditTask}
             />
-            <input
-              type='text'
-              value={task.text}
-              onChange={(e) => onEditTask({ ...task, text: e.target.value })}
-              readOnly={!editableTasks[task.id]}
-            />
-            <button onClick={() => handleToggleEdit(task.id)}>
-              {editableTasks[task.id] ? 'Save' : 'Edit'}
-            </button>
-            <button onClick={() => onDeleteTask(task.id)}>Delete</button>
           </li>
         ))}
       </ul>
