@@ -1,11 +1,11 @@
-import { useState, useContext } from 'react'
-import { TasksDispatchContext } from '../contexts/TasksContext'
+import { useState } from 'react'
+import { useTasksDispatch } from '../contexts/TasksContext'
 
 let nextTaskId = 3
 
 function AddTask() {
   const [text, setText] = useState('')
-  const dispatch = useContext(TasksDispatchContext)
+  const dispatch = useTasksDispatch()
 
   return (
     <>
